@@ -3,11 +3,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login / Register</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <ul>
-      <li>Webtech</li>
-    </ul>
+    <div class="wrapper">
+      <div class="form-side">
+        <!-- Login Form -->
+        <form class="form-panel active" id="loginPanel">
+          <h2>Login</h2>
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <div class="input-wrapper">
+              <i><img src="Image/email-file.gif" alt="user" width="20px" /></i>
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <div class="input-wrapper">
+              <i><img src="Image/padlock.gif" alt="lock" width="20px" /></i>
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-options">
+            <label><input type="checkbox" /> Remember Password</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+
+          <button type="submit">Login</button>
+
+          <div class="footer-text">
+            No account yet?
+            <a href="#" onclick="toggleForm('register')">Register</a>
+          </div>
+
+          <div class="footer-text">Or Login With:</div>
+
+          <div class="social-login">
+            <button>
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons/icons/github.svg"
+                alt="GitHub"
+              />
+            </button>
+            <button>
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons/icons/twitter.svg"
+                alt="Twitter"
+              />
+            </button>
+            <button>
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons/icons/facebook.svg"
+                alt="Facebook"
+              />
+            </button>
+            <button>
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons/icons/google.svg"
+                alt="Google"
+              />
+            </button>
+          </div>
+        </form>
+
+        <!-- Register Form -->
+        <form class="form-panel" id="registerPanel">
+          <h2>Register</h2>
+          <div class="form-group">
+            <label for="regName">Full Name</label>
+            <div class="input-wrapper">
+              <i><img src="Image/id-card.png" alt="" width="15px" /></i>
+              <input
+                type="text"
+                id="regName"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <div class="input-wrapper">
+              <i><img src="Image/email-file.gif" width="20px" alt="" /></i>
+              <input
+                type="email"
+                id="regEmail"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="regPassword">Password</label>
+            <div class="input-wrapper">
+              <i><img src="Image/padlock.gif" width="20px" alt="" /></i>
+              <input
+                type="password"
+                id="regPassword"
+                placeholder="Password"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit">Register</button>
+
+          <div class="footer-text">
+            Already have an account?
+            <a href="#" onclick="toggleForm('login')">Login</a>
+          </div>
+        </form>
+      </div>
+
+      <div class="image-side">
+        <img src="Image/Logo.png" alt="Login Illustration" />
+      </div>
+    </div>
+
+    <script>
+      function toggleForm(target) {
+        const login = document.getElementById("loginPanel");
+        const register = document.getElementById("registerPanel");
+
+        if (target === "register") {
+          login.classList.remove("active");
+          register.classList.add("active");
+        } else {
+          register.classList.remove("active");
+          login.classList.add("active");
+        }
+      }
+    </script>
   </body>
 </html>
