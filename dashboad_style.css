@@ -24,32 +24,49 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
-  font-size: 18px;
+.sidebar h3 {
+  margin-bottom: 50px;
+  font-size: 20px;
   color: #3c4b64;
+  text-align: center;
 }
 
 .sidebar .menu {
   list-style: none;
+  width: 100%;
 }
 
+/* Sidebar menu items */
 .sidebar .menu li {
-  padding: 10px 0;
-  cursor: pointer;
-  color: #555;
-  transition: 0.3s;
+  padding: 12px 0; /* Adjusted padding for better spacing */
+  display: flex;
+  align-items: center; /* Vertically center the icon and text */
+  gap: 15px; /* Increased gap for better spacing between icon and text */
+}
+
+/* Fixed width for icons */
+.sidebar .menu li i {
+  font-size: 22px; /* Icon size */
+  color: #6366f1; /* Icon color */
+  width: 30px; /* Fixed width to align icons */
+  text-align: center; /* Center the icons */
 }
 
 .sidebar .menu li:hover {
   color: #007bff;
 }
 
+.sidebar .menu li:hover i {
+  color: #007bff;
+}
+
 /* Help Card */
 .help-card {
-  margin-top: 20px;
+  margin-top: 160px;
   padding: 15px;
   background: #f2f2f9;
   border-radius: 10px;
@@ -104,7 +121,7 @@ body {
   cursor: pointer;
   font-weight: 600;
 }
-.header-buttons button :hover {
+.header-buttons button:hover {
   background-color: #6366f1;
   color: #f2f2f9;
 }
@@ -139,4 +156,81 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: #2d3748;
+}
+/* Main Content Section */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+/* Map Section */
+.map-container {
+  flex: 80%; /* Takes 80% of the space */
+  background-color: #ececec; /* Background color for map */
+  border-radius: 10px;
+}
+
+/* Notification Section */
+.notification-container {
+  flex: 20%; /* Takes 20% of the space */
+  background: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow-y: auto; /* Scroll if there are many notifications */
+}
+
+.notification-container h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #6366f1;
+}
+
+.notification-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notification-container li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.notification-container li:hover {
+  background-color: #f2f2f9;
+  cursor: pointer;
+}
+
+/* Footer Section */
+footer {
+  background-color: #6366f1;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
