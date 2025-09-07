@@ -141,6 +141,7 @@
     </div>
 
     <script>
+      // Function to toggle between login and register forms
       function toggleForm(target) {
         const login = document.getElementById("loginPanel");
         const register = document.getElementById("registerPanel");
@@ -152,14 +153,26 @@
           register.classList.remove("active");
           login.classList.add("active");
         }
-        const Log_ID = document.getElementById("loginEmail");
-        const Pass = document.getElementById("loginPassword");
-        if (Log_ID.value === "admin" && Pass.value === "admin") {
-          window.location.href = "Dashboard.html";
-        } else {
-          alert("Incorrect login credentials. Please try again.");
-        }
       }
+
+      // Event listener for login form submission
+      document
+        .getElementById("loginPanel")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const Log_ID = document.getElementById("loginEmail").value;
+          const Pass = document.getElementById("loginPassword").value;
+
+          // Check if credentials are correct
+          if (Log_ID === "admin@gmail.com" && Pass === "admin") {
+            // Redirect to dashboard if correct credentials
+            window.location.href = "Dashboard.html"; // Ensure the path is correct
+          } else {
+            // Display an error message if credentials are incorrect
+            alert("Incorrect login credentials. Please try again.");
+          }
+        });
     </script>
   </body>
 </html>
