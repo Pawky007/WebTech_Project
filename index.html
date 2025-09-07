@@ -152,6 +152,13 @@
           register.classList.remove("active");
           login.classList.add("active");
         }
+        const Log_ID = document.getElementById("loginEmail");
+        const Pass = document.getElementById("loginPassword");
+        if (Log_ID.value === "admin" && Pass.value === "admin") {
+          window.location.href = "Dashboard.html";
+        } else {
+          alert("Incorrect login credentials. Please try again.");
+        }
       }
     </script>
   </body>
