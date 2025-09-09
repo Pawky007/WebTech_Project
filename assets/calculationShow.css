@@ -1,0 +1,67 @@
+:root{
+  --bg:#f4f6f9; --surface:#fff; --text:#1a1a1a; --muted:#495057; --border:#e3e6eb;
+  --primary:#0d6efd; --btn-bg:#e9f1ff; --btn-text:#0d6efd;
+  --btn-active-bg:#0d6efd; --btn-active-text:#fff;
+  --thead-bg:#0d6efd; --thead-text:#fff; --row-alt:#f9fbfe;
+  --total-bg:#f1f1f1; --total-text:#000; --profit-pos:#157347; --profit-neg:#dc3545;
+  --chip:#eef7ff; --chip-text:#084298;
+}
+body.dark{
+  --bg:#0f141a; --surface:#111820; --text:#e8eef6; --muted:#b9c4d0; --border:#1f2a36;
+  --primary:#66aaff; --btn-bg:#0b1a2a; --btn-text:#86b9ff;
+  --btn-active-bg:#2b6fdd; --btn-active-text:#e8eef6;
+  --thead-bg:#1a3a66; --thead-text:#e8eef6; --row-alt:#0e1822;
+  --total-bg:#0b2236; --total-text:#e8eef6; --profit-pos:#57d89d; --profit-neg:#ff7b91;
+  --chip:#0b2440; --chip-text:#9bc3ff;
+}
+
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;padding:16px}
+.shell{max-width:1100px;margin:0 auto}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.07);padding:16px}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:10px}
+.left,.right{display:flex;align-items:center;gap:10px}
+.brand{font-weight:800}
+.truck-badge{background:var(--chip);color:var(--chip-text);padding:6px 10px;border-radius:999px;font-weight:700}
+
+.btn{padding:8px 14px;border-radius:10px;border:1px solid var(--border);background:var(--btn-bg);color:var(--btn-text);cursor:pointer;font-weight:600;transition:.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn.active{background:var(--btn-active-bg);color:var(--btn-active-text)}
+.btn.link{background:transparent;color:var(--text)}
+
+.calendar-wrap{display:flex;align-items:center;gap:10px}
+.calendar-pill{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:10px}
+.calendar-pill input{border:none;background:transparent;color:var(--text);min-width:130px}
+
+h2{text-align:center;margin:8px 0}
+.subtitle{text-align:center;color:var(--muted);margin-bottom:12px}
+
+.controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:10px 0}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid var(--border);padding:10px;text-align:center}
+th{background:var(--thead-bg);color:var(--thead-text)}
+tbody tr:nth-child(even){background:var(--row-alt)}
+.profit-positive{color:var(--profit-pos);font-weight:700}
+.profit-negative{color:var(--profit-neg);font-weight:700}
+.totals{background:var(--total-bg)!important;color:var(--total-text)!important;font-weight:800}
+
+.receipt-btn{padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:#eef7ff;color:#0d6efd;cursor:pointer}
+.receipt-btn:hover{filter:brightness(0.98)}
+
+/* Flatpickr dark mode fixes */
+body.dark .flatpickr-calendar{background:#0f1822;border:1px solid #2a3b52;color:#e8eef6}
+body.dark .flatpickr-months .flatpickr-month,
+body.dark .flatpickr-current-month,
+body.dark .flatpickr-current-month .cur-month,
+body.dark .flatpickr-current-month input.cur-year,
+body.dark .numInputWrapper .numInput{color:#e8eef6 !important}
+body.dark .flatpickr-months .flatpickr-prev-month,
+body.dark .flatpickr-months .flatpickr-next-month{color:#e8eef6 !important;fill:#e8eef6 !important;opacity:1}
+body.dark .flatpickr-weekday{color:#9bc3ff !important}
+body.dark .flatpickr-day{color:#e8eef6}
+body.dark .flatpickr-day:hover{background:#20324a;border-color:#20324a}
+body.dark .flatpickr-day.today{border-color:#66aaff}
+body.dark .flatpickr-day.selected{background:#2b6fdd;border-color:#2b6fdd;color:#fff}
+body.dark select.flatpickr-monthDropdown-months{background:#0f1822;color:#e8eef6;border:1px solid #2a3b52}
+body.dark select.flatpickr-monthDropdown-months option{background:#0f1822;color:#e8eef6}

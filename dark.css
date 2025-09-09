@@ -1,0 +1,21 @@
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.card.dark-mode {
+    background-color: #444;
+}
+
+button.dark-mode {
+    background-color: #333;
+}
+
+button[type="submit"].dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+button[type="submit"]:hover.dark-mode {
+    background-color: #444;
+}
