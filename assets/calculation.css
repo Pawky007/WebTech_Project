@@ -1,0 +1,176 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f5f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Shell */
+.shell {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Topbar */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.topbar .brand {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.topbar .right {
+    display: flex;
+    gap: 10px;
+}
+
+.topbar button, .topbar a {
+    padding: 8px 15px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.topbar button:hover, .topbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Form */
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+/* Select and Input Styling */
+select, input[type="text"], input[type="number"], input[type="radio"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+select:focus, input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #007bff;
+    background-color: #fff;
+    outline: none;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Distance Display */
+#distanceDisplay {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Error Message */
+.error {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Total Cost & Profit Display */
+#totalCost, #profit {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topbar .brand {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .topbar button, .topbar a {
+        font-size: 14px;
+    }
+
+    .shell {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}

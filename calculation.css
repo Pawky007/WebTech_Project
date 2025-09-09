@@ -1,0 +1,96 @@
+/* Light Mode */
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+.card.dark-mode {
+    background-color: #444;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button.dark-mode {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button[type="submit"].dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+button[type="submit"]:hover.dark-mode {
+    background-color: #444;
+}
+
+button.dark-mode:hover {
+    background-color: #444;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Input Styles */
+input[type="number"], input[type="text"], select {
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+input[type="number"]:focus, input[type="text"]:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Default State of Distance (Hidden until both "From" and "To" are selected) */
+#distanceDisplay {
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 10px;
+}

@@ -1,0 +1,16 @@
+body {
+    background-color: white;
+    color: black;
+}
+
+.card {
+    background-color: #f8f8f8;
+}
+
+button {
+    background-color: #28a745;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
