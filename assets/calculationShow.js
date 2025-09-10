@@ -2,71 +2,74 @@
 console.log("✅ calculationShow.js loaded");
 
 // ---------- Navigation + Filters ----------
-function goHome(){ 
+function goHome() {
   // Update if your home page is different
-  window.location.href = "calculationShow.php"; 
+  window.location.href = "calculationShow.php";
 }
 
-function setRange(days){
+function setRange(days) {
   const url = new URL(window.location.href);
-  url.searchParams.delete('anchor');
-  url.searchParams.set('range', days);
+  url.searchParams.delete("anchor");
+  url.searchParams.set("range", days);
   window.location.href = url.toString();
 }
 
 // ---------- Dark Mode with Persistence ----------
 const body = document.body;
-const themeBtn = document.getElementById('themeToggle');
+const themeBtn = document.getElementById("themeToggle");
 
-function applyTheme(){
-  const saved = localStorage.getItem('hp-theme') || 'light';
-  if(saved === 'dark'){
-    body.classList.add('dark');
-    themeBtn.textContent = '☀️ Light Mode';
-  }else{
-    body.classList.remove('dark');
-    themeBtn.textContent = '🌙 Dark Mode';
+function applyTheme() {
+  const saved = localStorage.getItem("hp-theme") || "light";
+  if (saved === "dark") {
+    body.classList.add("dark");
+    themeBtn.textContent = "☀️ Light Mode";
+  } else {
+    body.classList.remove("dark");
+    themeBtn.textContent = "🌙 Dark Mode";
   }
 }
 
 if (themeBtn) {
-  themeBtn.addEventListener('click', ()=>{
-    const newTheme = body.classList.contains('dark') ? 'light' : 'dark';
-    localStorage.setItem('hp-theme', newTheme);
+  themeBtn.addEventListener("click", () => {
+    const newTheme = body.classList.contains("dark") ? "light" : "dark";
+    localStorage.setItem("hp-theme", newTheme);
     applyTheme();
   });
 }
 applyTheme();
 
 // ---------- Calendar (Flatpickr) ----------
-function isoToDMY(iso){
-  const [y,m,d] = iso.split('-');
+function isoToDMY(iso) {
+  const [y, m, d] = iso.split("-");
   return `${d}-${m}-${y}`;
 }
 
-document.addEventListener('DOMContentLoaded', function(){
-  const isoDefault = (window.HAULPRO && window.HAULPRO.anchorIso) ? window.HAULPRO.anchorIso : null;
+document.addEventListener("DOMContentLoaded", function () {
+  const isoDefault =
+    window.HAULPRO && window.HAULPRO.anchorIso
+      ? window.HAULPRO.anchorIso
+      : null;
 
   if (window.flatpickr) {
     window.flatpickr("#jumpDate", {
       dateFormat: "d-m-Y",
       defaultDate: isoDefault ? isoToDMY(isoDefault) : null,
-      onChange: function(selectedDates, dateStr) {
+      onChange: function (selectedDates, dateStr) {
         if (!dateStr) return;
-        const [dd,mm,yyyy] = dateStr.split("-");
+        const [dd, mm, yyyy] = dateStr.split("-");
         const iso = `${yyyy}-${mm}-${dd}`;
         const url = new URL(window.location.href);
-        url.searchParams.set('anchor', iso);
-        url.searchParams.set('range', 30);
+        url.searchParams.set("anchor", iso);
+        url.searchParams.set("range", 30);
         window.location.href = url.toString();
-      }
+      },
     });
   }
 });
 
 // ---------- Printable Receipt ----------
-function openReceipt(data){
-  const w = window.open('', '_blank', 'width=720,height=900');
+function openReceipt(data) {
+  const w = window.open("", "_blank", "width=720,height=900");
   const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -109,8 +112,8 @@ function openReceipt(data){
   </div>
 </body>
 </html>`;
-  w.document.open(); 
-  w.document.write(html); 
+  w.document.open();
+  w.document.write(html);
   w.document.close();
 }
 
@@ -118,3 +121,51 @@ function openReceipt(data){
 window.goHome = goHome;
 window.setRange = setRange;
 window.openReceipt = openReceipt;
+
+document.getElementById("truckList").addEventListener("change", function () {
+  const selectedTruck = this.value;
+
+  // Based on the selected truck, change the data displayed
+  updateTruckData(selectedTruck);
+});
+
+// Function to update data based on the selected truck
+function updateTruckData(truck) {
+  let filteredTrips = [];
+
+  // Example logic to filter trips based on the truck (You can adjust this logic)
+  if (truck === "truck1") {
+    filteredTrips = trips.filter((t) => t.route.includes("Cumilla")); // Example filter for Truck 1
+  } else if (truck === "truck2") {
+    filteredTrips = trips.filter((t) => t.route.includes("Sylhet")); // Example filter for Truck 2
+  } else if (truck === "truck3") {
+    filteredTrips = trips.filter((t) => t.route.includes("Chattogram")); // Example filter for Truck 3
+  }
+
+  // Call a function to display the filtered trips
+  displayTrips(filteredTrips);
+}
+
+// Function to display trips in the table
+function displayTrips(filteredTrips) {
+  const tableBody = document.querySelector("table tbody");
+  tableBody.innerHTML = ""; // Clear existing data
+
+  filteredTrips.forEach((trip, index) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${trip.date}</td>
+      <td>${trip.route}</td>
+      <td>${trip.type}</td>
+      <td>${trip.distance} km</td>
+      <td>৳${trip.revenue}</td>
+      <td>৳${trip.expense}</td>
+      <td>৳${trip.revenue - trip.expense}</td>
+      <td><button class="receipt-btn" onclick="openReceipt({receipt:'${
+        trip.route
+      }', ...})">Receipt</button></td>
+    `;
+    tableBody.appendChild(row);
+  });
+}

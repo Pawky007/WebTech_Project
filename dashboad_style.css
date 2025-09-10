@@ -14,6 +14,12 @@ body {
   display: flex;
   min-height: 100vh;
 }
+.sidebar a {
+  text-decoration: none;
+}
+.sidebar a:hover {
+  color: #007bff;
+}
 
 /* Sidebar */
 .sidebar {
@@ -38,6 +44,7 @@ body {
 .sidebar .menu {
   list-style: none;
   width: 100%;
+  margin: 20px;
 }
 
 /* Sidebar menu items */
@@ -63,7 +70,6 @@ body {
 .sidebar .menu li:hover i {
   color: #007bff;
 }
-
 /* Help Card */
 .help-card {
   margin-top: 160px;
