@@ -1,64 +1,19 @@
 <?php
 date_default_timezone_set('Asia/Dhaka');
 
-// ----- DATA -----
-// Assuming you have different trip data for each truck
-$truckData = [
-  'truck1' => [
-    ["route"=>"Cumilla → Feni", "distance"=>70, "revenue"=>8500, "expense"=>5000, "type"=>"Round", "date"=>"2024-05-05"], 
-    ["route"=>"Sylhet → Khulna", "distance"=>410, "revenue"=>21000, "expense"=>14000, "type"=>"Single", "date"=>"2024-06-15"], 
-    ["route"=>"Sylhet → Rajshahi", "distance"=>470, "revenue"=>23000, "expense"=>15000, "type"=>"Round", "date"=>"2024-08-01"],
-    ["route"=>"Chattogram → Khulna", "distance"=>450, "revenue"=>24000, "expense"=>16000, "type"=>"Single", "date"=>"2024-09-01"],
-    ["route"=>"Chattogram → Sylhet", "distance"=>330, "revenue"=>19000, "expense"=>13000, "type"=>"Round", "date"=>"2024-10-05"],
-    ["route"=>"Chattogram → Cox’s Bazar", "distance"=>150, "revenue"=>11000, "expense"=>7000, "type"=>"Single", "date"=>"2024-11-15"],
-    ["route"=>"Dhaka → Feni", "distance"=>170, "revenue"=>11000, "expense"=>7000, "type"=>"Round", "date"=>"2024-12-10"],
-    ["route"=>"Dhaka → Cumilla", "distance"=>100, "revenue"=>9500, "expense"=>6000, "type"=>"Single", "date"=>"2025-01-20"],
-    ["route"=>"Dhaka → Rajshahi", "distance"=>255, "revenue"=>14000, "expense"=>9000, "type"=>"Single", "date"=>"2025-02-12"],
-    ["route"=>"Dhaka → Khulna", "distance"=>275, "revenue"=>15000, "expense"=>10000, "type"=>"Round", "date"=>"2025-03-01"],
-    ["route"=>"Dhaka → Cox’s Bazar", "distance"=>390, "revenue"=>24000, "expense"=>15000, "type"=>"Single", "date"=>"2025-05-05"],
-    ["route"=>"Dhaka → Sylhet", "distance"=>240, "revenue"=>16000, "expense"=>11000, "type"=>"Round", "date"=>"2025-08-01"],
-    ["route"=>"Dhaka → Cox’s Bazar", "distance"=>390, "revenue"=>24500, "expense"=>15200, "type"=>"Single", "date"=>"2025-08-02"],
-    ["route"=>"Dhaka → Khulna", "distance"=>275, "revenue"=>15100, "expense"=>10150, "type"=>"Round", "date"=>"2025-08-23"],
-    ["route"=>"Dhaka → Rajshahi", "distance"=>255, "revenue"=>14200, "expense"=>9200, "type"=>"Single", "date"=>"2025-08-31"],
-    ["route"=>"Dhaka → Chattogram", "distance"=>245, "revenue"=>17000, "expense"=>12000, "type"=>"Single", "date"=>"2025-09-01"],
-  ],
-  'truck2' => [
-    ["route"=>"Cumilla → Feni", "distance"=>70, "revenue"=>8500, "expense"=>5000, "type"=>"Round", "date"=>"2024-05-05"], 
-    ["route"=>"Sylhet → Khulna", "distance"=>410, "revenue"=>21000, "expense"=>14000, "type"=>"Single", "date"=>"2024-06-15"], 
-    ["route"=>"Sylhet → Rajshahi", "distance"=>470, "revenue"=>23000, "expense"=>15000, "type"=>"Round", "date"=>"2024-08-01"],
-    ["route"=>"Chattogram → Khulna", "distance"=>450, "revenue"=>24000, "expense"=>16000, "type"=>"Single", "date"=>"2024-09-01"],
-    ["route"=>"Chattogram → Sylhet", "distance"=>330, "revenue"=>19000, "expense"=>13000, "type"=>"Round", "date"=>"2024-10-05"],
-    ["route"=>"Chattogram → Cox’s Bazar", "distance"=>150, "revenue"=>11000, "expense"=>7000, "type"=>"Single", "date"=>"2024-11-15"],
-    ["route"=>"Dhaka → Feni", "distance"=>170, "revenue"=>11000, "expense"=>7000, "type"=>"Round", "date"=>"2024-12-10"],
-    ["route"=>"Dhaka → Cumilla", "distance"=>100, "revenue"=>9500, "expense"=>6000, "type"=>"Single", "date"=>"2025-01-20"],
-    ["route"=>"Dhaka → Rajshahi", "distance"=>255, "revenue"=>14000, "expense"=>9000, "type"=>"Single", "date"=>"2025-02-12"],
-    ["route"=>"Dhaka → Khulna", "distance"=>275, "revenue"=>15000, "expense"=>10000, "type"=>"Round", "date"=>"2025-03-01"],
-    ["route"=>"Dhaka → Cox’s Bazar", "distance"=>390, "revenue"=>24000, "expense"=>15000, "type"=>"Single", "date"=>"2025-05-05"],
-    ["route"=>"Dhaka → Sylhet", "distance"=>240, "revenue"=>16000, "expense"=>11000, "type"=>"Round", "date"=>"2025-08-01"],
-    ["route"=>"Dhaka → Cox’s Bazar", "distance"=>390, "revenue"=>24500, "expense"=>15200, "type"=>"Single", "date"=>"2025-08-02"],
-    ["route"=>"Dhaka → Khulna", "distance"=>275, "revenue"=>15100, "expense"=>10150, "type"=>"Round", "date"=>"2025-08-23"],
-    ["route"=>"Dhaka → Rajshahi", "distance"=>255, "revenue"=>14200, "expense"=>9200, "type"=>"Single", "date"=>"2025-08-31"],
-    ["route"=>"Dhaka → Chattogram", "distance"=>245, "revenue"=>17000, "expense"=>12000, "type"=>"Single", "date"=>"2025-09-01"],
-  ],
-  'truck3' => [
-    ["route"=>"Cumilla → Feni", "distance"=>70, "revenue"=>8500, "expense"=>5000, "type"=>"Round", "date"=>"2024-05-05"], 
-    ["route"=>"Sylhet → Khulna", "distance"=>410, "revenue"=>21000, "expense"=>14000, "type"=>"Single", "date"=>"2024-06-15"], 
-    ["route"=>"Sylhet → Rajshahi", "distance"=>470, "revenue"=>23000, "expense"=>15000, "type"=>"Round", "date"=>"2024-08-01"],
-    ["route"=>"Chattogram → Khulna", "distance"=>450, "revenue"=>24000, "expense"=>16000, "type"=>"Single", "date"=>"2024-09-01"],
-    ["route"=>"Chattogram → Sylhet", "distance"=>330, "revenue"=>19000, "expense"=>13000, "type"=>"Round", "date"=>"2024-10-05"],
-    ["route"=>"Chattogram → Cox’s Bazar", "distance"=>150, "revenue"=>11000, "expense"=>7000, "type"=>"Single", "date"=>"2024-11-15"],
-    ["route"=>"Dhaka → Feni", "distance"=>170, "revenue"=>11000, "expense"=>7000, "type"=>"Round", "date"=>"2024-12-10"],
-    ["route"=>"Dhaka → Cumilla", "distance"=>100, "revenue"=>9500, "expense"=>6000, "type"=>"Single", "date"=>"2025-01-20"],
-    ["route"=>"Dhaka → Rajshahi", "distance"=>255, "revenue"=>14000, "expense"=>9000, "type"=>"Single", "date"=>"2025-02-12"],
-    ["route"=>"Dhaka → Khulna", "distance"=>275, "revenue"=>15000, "expense"=>10000, "type"=>"Round", "date"=>"2025-03-01"],
-    ["route"=>"Dhaka → Cox’s Bazar", "distance"=>390, "revenue"=>24000, "expense"=>15000, "type"=>"Single", "date"=>"2025-05-05"],
-    ["route"=>"Dhaka → Sylhet", "distance"=>240, "revenue"=>16000, "expense"=>11000, "type"=>"Round", "date"=>"2025-08-01"],
-    ["route"=>"Dhaka → Cox’s Bazar", "distance"=>390, "revenue"=>24500, "expense"=>15200, "type"=>"Single", "date"=>"2025-08-02"],
-    ["route"=>"Dhaka → Khulna", "distance"=>275, "revenue"=>15100, "expense"=>10150, "type"=>"Round", "date"=>"2025-08-23"],
-    ["route"=>"Dhaka → Rajshahi", "distance"=>255, "revenue"=>14200, "expense"=>9200, "type"=>"Single", "date"=>"2025-08-31"],
-    ["route"=>"Dhaka → Chattogram", "distance"=>245, "revenue"=>17000, "expense"=>12000, "type"=>"Single", "date"=>"2025-09-01"],
-  ]
-];
+// ----- Database Connection -----
+$servername = "localhost";  // Database server (usually localhost)
+$username = "root";         // Database username
+$password = "";             // Database password
+$dbname = "webtech_project"; // Your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // ----- FILTERS -----
 $truck = $_GET['truck'] ?? 'truck1';  // Default to Truck 1 if no truck is selected
@@ -66,14 +21,25 @@ $range  = $_GET['range'] ?? '30';  // Default to the last 30 days
 $anchor = $_GET['anchor'] ?? null;
 $rangeLabel = ($range === 'all') ? 'All Trips' : "Last $range Days";
 
-// Retrieve the trips for the selected truck
-$trips = $truckData[$truck];
+// Retrieve trips for the selected truck from the database
+$sql = "SELECT `Trip No`, `Date (BD)`, `Route`, `Trip Type`, `Distance (km)`, `Rent / Revenue (BDT)`, `Expense (BDT)`, `Profit (BDT)`
+        FROM `trip_history`"; // Modified query to select all trips
 
-// Filter trips based on the range
+// Prepare the query for execution
+$stmt = $conn->prepare($sql);
+
+// Execute the query
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Fetch all rows from the result
+$trips = $result->fetch_all(MYSQLI_ASSOC);
+
+// ----- FILTERING BASED ON RANGE -----
 if ($anchor && preg_match('/^\d{4}-\d{2}-\d{2}$/', $anchor)) {
   $end   = $anchor;
   $start = date("Y-m-d", strtotime("$end -30 days"));
-  $filtered = array_filter($trips, fn($t) => $t["date"] >= $start && $t["date"] <= $end);
+  $filtered = array_filter($trips, fn($t) => $t["Date (BD)"] >= $start && $t["Date (BD)"] <= $end);
   $rangeLabel = "30 Days ending " . date("d/m/Y", strtotime($end));
   $range = 30;
 } else {
@@ -81,35 +47,35 @@ if ($anchor && preg_match('/^\d{4}-\d{2}-\d{2}$/', $anchor)) {
     $filtered = $trips;
   } else {
     $cutoff = date("Y-m-d", strtotime("-$range days"));
-    $filtered = array_filter($trips, fn($t) => $t["date"] >= $cutoff);
+    $filtered = array_filter($trips, fn($t) => $t["Date (BD)"] >= $cutoff);
   }
 }
 
-// Sort & totals
-usort($filtered, fn($a,$b) => strtotime($a["date"]) <=> strtotime($b["date"]));
+// ----- CALCULATE TOTALS -----
+usort($filtered, fn($a, $b) => strtotime($a["Date (BD)"]) <=> strtotime($b["Date (BD)"]));
 $totalRevenue = $totalExpense = $totalProfit = 0;
 foreach ($filtered as $row) {
-  $m = ($row['type'] === 'Round') ? 2 : 1;
-  $rev = $row['revenue'] * $m; 
-  $exp = $row['expense'] * $m;
-  $totalRevenue += $rev; 
-  $totalExpense += $exp; 
+  $m = ($row['Trip Type'] === 'Round') ? 2 : 1;
+  $rev = $row['Rent / Revenue (BDT)'] * $m;
+  $exp = $row['Expense (BDT)'] * $m;
+  $totalRevenue += $rev;
+  $totalExpense += $exp;
   $totalProfit += ($rev - $exp);
 }
 
 $grandRevenue = $grandExpense = 0;
 foreach ($trips as $row) {
-  $m = ($row['type'] === 'Round') ? 2 : 1;
-  $grandRevenue += $row['revenue'] * $m; 
-  $grandExpense += $row['expense'] * $m;
+  $m = ($row['Trip Type'] === 'Round') ? 2 : 1;
+  $grandRevenue += $row['Rent / Revenue (BDT)'] * $m;
+  $grandExpense += $row['Expense (BDT)'] * $m;
 }
 
 $grandProfit = $grandRevenue - $grandExpense;
 $anchorIsoForJs = $anchor ?: date('Y-m-d');
 
+// Close the database connection
+$conn->close();
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +122,7 @@ $anchorIsoForJs = $anchor ?: date('Y-m-d');
             <a href="#"><i class="fa fa-user-tie"></i> Lorry Owner List</a>
           </li>
           <li>
-            <a href="http://localhost/WebTech_Project/Lorry_List.php"
+            <a href="http://localhost/WebTech_Project/Truck_list.php"
               ><i class="fa fa-truck-moving"></i> Lorry List</a
             >
           </li>
@@ -219,21 +185,21 @@ $anchorIsoForJs = $anchor ?: date('Y-m-d');
           </thead>
           <tbody>
             <?php if ($filtered): $serial = 1; foreach($filtered as $t): 
-              $m = ($t['type'] === 'Round') ? 2 : 1;
-              $distance = $t['distance'] * $m; $revenue = $t['revenue'] * $m; $expense = $t['expense'] * $m; $profit = $revenue - $expense;
+              $m = ($t['Trip Type'] === 'Round') ? 2 : 1;
+              $distance = $t['Distance (km)'] * $m; $revenue = $t['Rent / Revenue (BDT)'] * $m; $expense = $t['Expense (BDT)'] * $m; $profit = $revenue - $expense;
             ?>
             <tr>
               <td><?= $serial ?></td>
-              <td><?= $t["date"] ?></td>
-              <td><?= htmlspecialchars($t["route"]) ?></td>
-              <td><?= htmlspecialchars($t["type"]) ?></td>
+              <td><?= $t["Date (BD)"] ?></td>
+              <td><?= htmlspecialchars($t["Route"]) ?></td>
+              <td><?= htmlspecialchars($t["Trip Type"]) ?></td>
               <td><?= number_format($distance) ?> km</td>
               <td>৳<?= number_format($revenue) ?></td>
               <td>৳<?= number_format($expense) ?></td>
               <td>৳<?= number_format($profit) ?></td>
               <td><button class="receipt-btn" onclick="openReceipt({
-                receipt:'<?= $serial ?>', no:'<?= $serial ?>', date:'<?= $t["date"] ?>',
-                route:'<?= htmlspecialchars($t["route"], ENT_QUOTES) ?>', type:'<?= $t["type"] ?>',
+                receipt:'<?= $serial ?>', no:'<?= $serial ?>', date:'<?= $t["Date (BD)"] ?>',
+                route:'<?= htmlspecialchars($t["Route"], ENT_QUOTES) ?>', type:'<?= $t["Trip Type"] ?>',
                 distance:'<?= number_format($distance) ?>', revenue:'<?= number_format($revenue) ?>',
                 expense:'<?= number_format($expense) ?>', profit:'<?= number_format($profit) ?>'
               })">Receipt</button></td>
@@ -257,7 +223,6 @@ $anchorIsoForJs = $anchor ?: date('Y-m-d');
   // The selected truck from the URL
   let selectedTruck = "<?php echo $truck; ?>";
 </script>
-
 
     <!-- Flatpickr + Your JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
