@@ -546,6 +546,6 @@
 </script>
 
 <!-- Your original Google Maps loader that calls initMap -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9OwltS3fiIj-fEbmKAPcYH39lj-mOZmM&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=API&callback=initMap" async defer></script>
 </body>
 </html>

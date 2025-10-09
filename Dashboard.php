@@ -418,7 +418,7 @@ function bd_int($n) {
 
       function toggleTraffic(){ trafficLayer.setMap(trafficVisible ? null : map); trafficVisible = !trafficVisible; }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9OwltS3fiIj-fEbmKAPcYH39lj-mOZmM&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=API&callback=initMap" async defer></script>
     <script>
 (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="nTG_Qdo5baK6-SvuWzFtz";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
 </script>
