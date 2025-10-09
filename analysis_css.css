@@ -1,0 +1,38 @@
+/* Submenu styles */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  list-style: none;
+  padding-left: 20px; /* indent submenu */
+  margin: 0;
+  transition: max-height 0.4s ease;
+}
+
+.submenu li a {
+  display: block;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: #444;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.submenu li a:hover {
+  color: #007bff;
+}
+
+/* Hover opens submenu */
+.has-submenu:hover .submenu {
+  max-height: 300px; /* enough for 3 items */
+}
+
+/* Ensure alignment matches other items */
+.has-submenu > a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.has-submenu img {
+  width: 40px;
+}
